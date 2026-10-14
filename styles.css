@@ -1,0 +1,41 @@
+.csv-rule-results {
+ padding: var(--size-4-6);
+ overflow: auto;
+}
+
+.csv-rule-summary {
+ color: var(--text-muted);
+}
+
+.csv-rule-table-wrap {
+ overflow-x: auto;
+ margin-bottom: var(--size-4-6);
+}
+
+.csv-rule-table {
+ width: 100%;
+ border-collapse: collapse;
+ font-size: var(--font-ui-small);
+}
+
+.csv-rule-table th,
+.csv-rule-table td {
+ padding: var(--size-4-2) var(--size-4-3);
+ border: 1px solid var(--background-modifier-border);
+ text-align: left;
+ white-space: pre-wrap;
+ overflow-wrap: anywhere;
+ max-width: 30em;
+}
+
+.csv-rule-table th {
+ background-color: var(--background-secondary);
+}
+
+.csv-rule-warning {
+ color: var(--text-error);
+}
+
+.csv-rule-success {
+ color: var(--text-success);
+}
