@@ -5,6 +5,8 @@ import { check, checkSize, markdownReport, parseSchema, previewFixes, MAX_BYTES,
 import { SPONSORS, bindPro, isPro, resetPro } from './pro';
 import { RuleSettingTab, normalizeSettings, type RuleSettings } from './settings';
 import { CheckView, ChooseModal, FixModal, BatchModal, VIEW_ID } from './ui';
+import { setupHello } from './hello/index';
+import WHATS_NEW from './whats-new.json';
 
 export interface CheckedFile { path: string; csv: string; schema: string; result: Result }
 export default class CsvSchemaLinterPlugin extends Plugin {
@@ -13,6 +15,8 @@ export default class CsvSchemaLinterPlugin extends Plugin {
  latest: CheckedFile[] = [];
  message = '';
  async onload(): Promise<void> {
+   // First: "What's new" reads its state before the settings load (packages/hello). It does not wait.
+   setupHello(this, WHATS_NEW);
   this.settings = normalizeSettings(await this.loadData() as unknown);
   const pro = createGitHubSponsors(this.app, this.manifest.id, SPONSORS, this);
   pro.init(); this.pro = pro; bindPro(pro);

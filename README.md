@@ -46,7 +46,7 @@ After a check, enter a new rule set name in the results view and select “Save 
 
 ## Install
 
-For manual installation, copy `main.js`, `manifest.json` and `styles.css` from a release into `<vault>/.obsidian/plugins/csv-schema-linter/`. Open Community plugins and enable CSV Rule Check. Use the minimum Obsidian version stated in `manifest.json` or a later public release. This source tree is prepared for review; publication is a separate step.
+For manual installation, copy `main.js`, `manifest.json` and `styles.css` from a release into `<vault>/.obsidian/plugins/csv-schema-linter/`. Open Community plugins and enable CSV Rule Check. Use the minimum Obsidian version stated in `manifest.json` or a later public release.
 
 ## Usage
 
@@ -66,6 +66,8 @@ Put your CSV and rule file in the vault before you open the chooser. Obsidian mu
 Run a check, inspect its table, correct the source in your CSV editor, and run the check again. The plugin does not edit the source. A required value means an empty field. Spaces alone count as a value during validation. Allowed values and duplicates compare exact text, including case and spaces. Columns without rules still appear in parsed records but have no value checks.
 
 ## Settings
+
+After a minor or major update, this plugin opens one What's new tab in the background. The tab and settings card suggest other NoteMods plugins and Zovo Chat and link to notemods.com for feedback ([privacy](https://notemods.com/privacy/)). The tab sends no data. Turn the tab off in Settings.
 
 The settings tab shows the input limit, the displayed error limit, GitHub Sponsors controls and the saved rule set count. The delimiter is fixed. This version uses commas. Rules belong in JSON files rather than global toggles. Supported rule keys are `required`, `type`, `enum`, `unique`, `trim` and `default`. Unknown keys are rejected to help find typing errors. The `enum` list and `default` must contain strings. Use `"20"`, rather than a JSON number, when you need that default text.
 
@@ -101,4 +103,4 @@ After a successful check, Pro can work offline for up to 14 days. Sign out or a 
 
 ## Support
 
-Report a bug in the published repository issues when it is available. Include the Obsidian version, the command used, and a small CSV and schema with private values removed. Describe the expected logical row and failed rule. The checker has no telemetry, so support does not receive your vault data automatically. Keep your original files when you compare a new CSV copy with an external tool.
+Report a bug in the repository issues. Include the Obsidian version, the command used, and a small CSV and schema with private values removed. Describe the expected logical row and failed rule. The checker has no telemetry, so support does not receive your vault data automatically. Keep your original files when you compare a new CSV copy with an external tool.
