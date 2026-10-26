@@ -2,7 +2,7 @@ import { ItemView, Modal, Setting, type WorkspaceLeaf } from 'obsidian';
 import type CsvSchemaLinterPlugin from './main';
 import type { CheckedFile } from './main';
 import { count, type Preview } from './checker';
-import { isPro } from './pro';
+import { isPro, proText } from './pro';
 export const VIEW_ID = 'csv-rule-results';
 function table(parent: HTMLElement, headings: string[], rows: (string | number)[][]): void {
  const wrap = parent.createDiv({ cls: 'csv-rule-table-wrap' });
@@ -31,7 +31,7 @@ export class CheckView extends ItemView {
    if (!item.result.total) el.createEl('p', { text: 'No errors found for these rules.', cls: 'csv-rule-success' });
    else table(el, ['Logical row', 'Column', 'Failed rule', 'Value'], item.result.errors.map(e => [e.row, e.column, e.rule, e.value]));
   }
-  new Setting(el).setName('Fix preview (pro)').setDesc(isPro() ? 'Pro is active. Review trim and default changes before writing a new CSV.' : 'Sponsor $5 a month or $15 once to use fix previews and batch checks.')
+  new Setting(el).setName('Fix preview (pro)').setDesc(isPro() ? 'Pro is active. Review trim and default changes before writing a new CSV.' : proText('Fix previews and batch checks need Pro.'))
    .addButton(b => b.setButtonText('Preview fixes (pro)').onClick(() => this.owner.safe(() => this.owner.openPreview())))
    .addButton(b => b.setButtonText('Batch check (pro)').onClick(() => { if (this.owner.requirePro()) new BatchModal(this.owner).open(); }));
   if (this.owner.latest.length) {

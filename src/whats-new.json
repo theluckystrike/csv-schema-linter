@@ -1,9 +1,9 @@
 {
 	"id": "csv-schema-linter",
 	"name": "CSV Rule Check",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"changes": [
-		"New Send feedback command. It opens a page where you can report a problem or suggest an idea."
+		"The CSV Rule Check notice for a Pro feature now has a Sponsor on GitHub button."
 	],
 	"tip": "Put the rules for people.csv in people.csv.schema.json in the same folder, and the check reads them.",
 	"thanks": "Hi, I am Michael, a solo developer in Poland. CSV Rule Check is one of over 100 small plugins that I make. Thank you for trusting it with your CSV files.",

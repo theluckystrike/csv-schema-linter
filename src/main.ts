@@ -2,7 +2,7 @@ import { Notice, Plugin, normalizePath, type TFile } from 'obsidian';
 import type { SponsorsManager } from './license/index';
 import { createGitHubSponsors } from './license/github-obsidian';
 import { check, checkSize, markdownReport, parseSchema, previewFixes, MAX_BYTES, type Result, type Preview } from './checker';
-import { SPONSORS, bindPro, isPro, resetPro } from './pro';
+import { SPONSORS, bindPro, isPro, proNotice, resetPro } from './pro';
 import { RuleSettingTab, normalizeSettings, type RuleSettings } from './settings';
 import { CheckView, ChooseModal, FixModal, BatchModal, VIEW_ID } from './ui';
 import { setupHello } from './hello/index';
@@ -36,7 +36,7 @@ export default class CsvSchemaLinterPlugin extends Plugin {
  }
  requirePro(): boolean {
   if (isPro()) return true;
-  new Notice('This feature needs pro. Free CSV checks and reports remain available.'); return false;
+  proNotice('This feature needs pro. Free CSV checks and reports remain available.'); return false;
  }
  private file(path: string): TFile {
   const file = this.app.vault.getFileByPath(normalizePath(path));

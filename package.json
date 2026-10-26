@@ -1,7 +1,6 @@
 {
 	"name": "csv-schema-linter",
-	"repository": {"type": "git", "url": "theluckystrike/csv-schema-linter.git"},
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"private": true,
 	"description": "Check CSV columns against local rules and show errors by row and column.",
 	"main": "main.js",
